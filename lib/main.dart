@@ -35,6 +35,11 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _textController = TextEditingController();
+
+  void _handleSubmitted(String text) {
+    _textController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,9 +73,5 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
     );
-  }
-
-  void _handleSubmitted(String text) {
-    _textController.clear();
   }
 }
