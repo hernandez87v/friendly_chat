@@ -42,21 +42,16 @@ class ChatMessage extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              child: Text(_name[0]),
-            ),
+            child: CircleAvatar(child: Text(_name[0])),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                _name,
-                style: Theme.of(context).textTheme.headline4,
-              ),
+              Text(_name, style: Theme.of(context).textTheme.headline4),
               Container(
                 margin: const EdgeInsets.only(top: 5.0),
                 child: Text(text),
-              )
+              ),
             ],
           ),
         ],
@@ -108,7 +103,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Container(
             decoration: BoxDecoration(color: Theme.of(context).cardColor),
             child: _buildTextComposer(),
-          )
+          ),
         ],
       ),
     );
@@ -135,7 +130,7 @@ class _ChatScreenState extends State<ChatScreen> {
               child: IconButton(
                   icon: const Icon(Icons.send),
                   onPressed: () => _handleSubmitted(_textController.text)),
-            )
+            ),
           ],
         ),
       ),
