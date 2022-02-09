@@ -1,7 +1,7 @@
 // Copyright 2017, 2020 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license
 // that can be found in the LICENSE file.
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +9,16 @@ void main() {
     const FriendlyChatApp(),
   );
 }
+
+final ThemeData kIOSTheme = ThemeData(
+  primarySwatch: Colors.indigo,
+  primaryColor: Colors.amberAccent[700],
+);
+
+final ThemeData kDefaultTheme = ThemeData(
+  colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo)
+      .copyWith(secondary: Colors.amberAccent[700]),
+);
 
 String _name = 'Vlad';
 
@@ -19,9 +29,12 @@ class FriendlyChatApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'FriendlyChat',
-      home: ChatScreen(),
+      theme: defaultTargetPlatform == TargetPlatform.iOS
+          ? kIOSTheme
+          : kDefaultTheme,
+      home: const ChatScreen(),
     );
   }
 }
