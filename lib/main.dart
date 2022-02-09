@@ -91,6 +91,9 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   void _handleSubmitted(String text) {
     _textController.clear();
+    setState(() {
+      _isComposing = false;
+    });
     var message = ChatMessage(
       text: text,
       animationController: AnimationController(
@@ -157,7 +160,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                   onPressed: _isComposing
                       ? () => _handleSubmitted(_textController.text)
                       : null,
-                )),
+                ))
           ],
         ),
       ),
